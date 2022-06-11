@@ -1,0 +1,14 @@
+{
+  "name": "async-await",
+  "version": "1.0.0",
+  "description": "async await",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "loveday emmanuel",
+  "license": "ISC",
+  "dependencies": {
+    "superagent": "^7.1.6"
+  }
+}
