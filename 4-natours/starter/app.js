@@ -2,8 +2,19 @@ const express = require('express');
 const fs = require('fs');
 
 const app = express();
-app.use(express.json()); //middleware
 const port = 8080;
+app.use(express.json()); //middleware
+
+// custom middleware
+app.use((req, res, next) => {
+  console.log('Hello from the middleware!');
+  next();
+});
+
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
 
 // Reading file from json data
 const tours = JSON.parse(
@@ -13,8 +24,11 @@ const tours = JSON.parse(
 // Callback functions for all tours
 
 const getAllTours = (req, res) => {
+  console.log(req.requestTime);
+
   res.status(200).json({
     status: 'success',
+    requestedAt: req.requestTime,
     results: tours.length,
     data: {
       tours,
