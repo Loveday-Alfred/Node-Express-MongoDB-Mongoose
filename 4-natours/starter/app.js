@@ -9,6 +9,7 @@ app.use(express.json()); //middleware
 
 // morgan middleware
 app.use(morgan('dev'));
+app.use(express.static(`${__dirname}/public`));
 
 // custom middleware
 app.use((req, res, next) => {
