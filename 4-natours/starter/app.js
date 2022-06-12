@@ -8,7 +8,11 @@ const userRouter = require('./routes/userRoutes');
 app.use(express.json()); //middleware
 
 // morgan middleware
-app.use(morgan('dev'));
+// console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
 app.use(express.static(`${__dirname}/public`));
 
 // custom middleware
