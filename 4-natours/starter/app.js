@@ -1,9 +1,13 @@
 const express = require('express');
 const fs = require('fs');
+const morgan = require('morgan');
 
 const app = express();
 const port = 8080;
 app.use(express.json()); //middleware
+
+// morgan middleware
+app.use(morgan('dev'));
 
 // custom middleware
 app.use((req, res, next) => {
