@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 
 const app = express();
+app.use(express.json());
 const port = 8080;
 
 const tours = JSON.parse(
