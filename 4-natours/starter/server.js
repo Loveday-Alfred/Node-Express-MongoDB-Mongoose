@@ -16,28 +16,10 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true,
   })
-  .then((connect) => {
+  .then(() => {
     // console.log(connect.connections);
-    // console.log('Success');
+    console.log('DB Connected');
   });
-
-const tourSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'A tour must have a name'],
-    unique: true,
-  },
-  rating: {
-    type: Number,
-    default: 4.5,
-  },
-  price: {
-    type: Number,
-    required: [true, 'A tour must have a price'],
-  },
-});
-
-const Tour = mongoose.model('Tour', tourSchema);
 
 // Starts Server
 const port = process.env.PORT || 3000;
